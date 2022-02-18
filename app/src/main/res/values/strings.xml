@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">DigitalPass</string>
+    <string name="create_account">Create Account</string>
+    <string name="passes">Passes</string>
+    <string name="passlist_item_title_placeholder">Passlist Item title placeholder</string>
+    <string name="title_placeholder">Title placeholder</string>
+    <string name="subtitle_placeholder">Subtitle placeholder</string>
+    <string name="name_surname_placeholder">Name Surname Placeholder</string>
+    <string name="dd_mm_yyyy_hh_mm">dd.mm.yyyy hh:mm</string>
+    <string name="ready_expiration">Ready expiration:</string>
+    <string name="time_expiration">Time expiration:</string>
+    <string name="update_credentials">Update credentials</string>
+    <string name="get_time_credentials">Get Time Credentials</string>
+    <string name="get_ready_credentail">Get Ready Credentail</string>
+</resources>
