@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/createAccountFragment">
+
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:label="@string/blank"
+        android:name="com.example.digitalpass.features.pass.presentation.createAccount.CreateAccountFragment"
+        tools:layout="@layout/fragment_create_account"
+        >
+        <action
+            android:id="@+id/action_createAccountFragment_to_passListFragment"
+            app:destination="@id/passListFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/flashPassFragment"
+        android:label="@string/blank"
+
+        tools:layout="@layout/fragment_flash_pass"
+        >
+        <action
+            android:id="@+id/action_flashPassFragment_to_updateCredentialsFragment"
+            app:destination="@id/updateCredentialsFragment" />
+        <action
+            android:id="@+id/action_flashPassFragment_to_passListFragment"
+            app:destination="@id/passListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/passListFragment"
+        android:label="@string/blank"
+        android:name="com.example.digitalpass.features.pass.presentation.passlist.PassListFragment"
+        tools:layout="@layout/fragment_pass_list"
+        >
+        <action
+            android:id="@+id/action_passListFragment_to_flashPassFragment"
+            app:destination="@id/flashPassFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateCredentialsFragment"
+        android:label="@string/blank"
+
+        tools:layout="@layout/fragment_update_credentials"
+        >
+        <action
+            android:id="@+id/action_updateCredentialsFragment_to_flashPassFragment"
+            app:destination="@id/flashPassFragment" />
+    </fragment>
+
+
+</navigation>

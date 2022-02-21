@@ -12,4 +12,5 @@
     <string name="update_credentials">Update credentials</string>
     <string name="get_time_credentials">Get Time Credentials</string>
     <string name="get_ready_credentail">Get Ready Credentail</string>
+    <string name="blank" />
 </resources>
