@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DigitalPass"
         android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true"
         >
 
         <activity
