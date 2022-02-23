@@ -11,8 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.digitalpass.R
 import com.example.digitalpass.databinding.FragmentCreateAccountBinding
 import com.example.digitalpass.features.pass.data.remote.RetrofitInstance
-import com.example.digitalpass.features.pass.data.remote.dto.User
 import com.example.digitalpass.features.pass.data.remote.dto.UserDto
+import com.example.digitalpass.features.pass.data.remote.dto.toCreateAccountDto
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
@@ -50,37 +50,10 @@ class CreateAccountFragment:Fragment(R.layout.fragment_create_account) {
                 return@launch
             }
             if( response.isSuccessful && response != null){
-                val str = response.body().toString()
-                Log.d("WORKS", str.substring(str.length-100, str.length))
-                val jsonObject = JSONObject(str)
-                val user : JSONObject =  jsonObject.get("user") as JSONObject
-                val obj = user.getUserFromJSON(user)
-                Log.d("ALSJDLAS", obj.firstName + " " + obj.lastName)
-                Log.d("USER", user.toString())
-                val name = (user as JSONObject).get("firstName")
+                val json = response.body()
+                val createAccountDto = json?.toCreateAccountDto()
+                Log.d("ACCOUNTDTO", createAccountDto?.passesDto.toString())
 
-
-//                val user:UserDto = jsonObject.get("user") as UserDto
-//                Log.d("USER", user.lastName )
-//                response.body().
-//                val body = response.body()
-//                Log.e("WORKS", body?.users.toString() )
-//                Log.e("WORKS", body?.passes.toString() )
-//                if( response.body()!!.passes == null ){
-//                    Log.d("WORKS", "ITS NULL")
-//                }
-//                if( response.body()!!.users == null ){
-//                    Log.d("WORKS", "ITS USER NULL")
-//                }
-//                response.body()?.let { responses ->
-//                    for( inst in responses ){
-//                        Log.d("WORKS", inst.toString())
-//                    }
-//                }
-//                response.body()?.apply {
-//                    if( passes == null )
-//                        Log.d("WORD", "PASSES ARE NULL")
-//                }
             }
             else{
                 Log.d("DOESN'T WORK", "DOESN'T WORK")
