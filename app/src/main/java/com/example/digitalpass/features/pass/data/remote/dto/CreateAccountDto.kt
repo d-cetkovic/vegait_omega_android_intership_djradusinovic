@@ -1,9 +1,7 @@
 package com.example.digitalpass.features.pass.data.remote.dto
 
 import com.google.gson.JsonObject
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import retrofit2.Response
 
 data class CreateAccountDto(
     @SerializedName("user")
