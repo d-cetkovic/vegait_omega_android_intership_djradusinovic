@@ -72,7 +72,3 @@ class CreateAccountFragment:Fragment(R.layout.fragment_create_account) {
        findNavController().navigate(R.id.action_createAccountFragment_to_passListFragment)
     }
 }
-
-fun JSONObject.getUserFromJSON(userJson: JSONObject): UserDto{
-    return UserDto(userJson.getString("firstName"), userJson.getString("image"), userJson.getString("lastName"))
-}
