@@ -12,14 +12,17 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUser(user: User)
+    suspend fun insertUser(user: User): Long
+
     @Query("SELECT * FROM $USER_TABLE_NAME")//will always return 1 user here of course but if it was to scale it would be easier to have multiple users like this
-    suspend fun getAllUsers(): Flow<List<User>>
+    fun getAllUsers(): Flow<List<User>>
 
     @Query("SELECT * FROM $USER_TABLE_NAME WHERE user_id = :userId")//unique id -> one user will be returned only even though I used '*' here
     fun getUserById(userId: Int): Flow<User>
+
     //query for 1-n relation built between User and its passes
-    @Query("""SELECT * FROM $PASS_TABLE_NAME WHERE user_id = :userId""")
-    fun getUserWithPasses(userId: Int) : Flow<UserWithPasses>
+    @Query("SELECT * FROM $USER_TABLE_NAME")
+    fun getUserWithPasses() : Flow<UserWithPasses>
 }

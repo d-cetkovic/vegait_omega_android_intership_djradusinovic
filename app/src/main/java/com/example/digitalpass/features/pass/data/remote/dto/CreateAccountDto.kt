@@ -1,5 +1,7 @@
 package com.example.digitalpass.features.pass.data.remote.dto
 
+import com.example.digitalpass.features.pass.data.local.entities.Pass
+import com.example.digitalpass.features.pass.data.local.entities.User
 import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
 
@@ -10,6 +12,18 @@ data class CreateAccountDto(
     @SerializedName("passes")
     val passesDto: HashMap<String, PassDto>
 )
+
+fun CreateAccountDto.toUserPasses(userId: Long):List<Pass>{
+    val passesList :MutableList<Pass> = mutableListOf()
+
+    for( pass in passesDto ){
+        passesList.add(
+            pass.value.toPass(pass.key, userId)
+        )
+    }
+
+    return passesList
+}
 
 fun JsonObject.toCreateAccountDto(): CreateAccountDto{
     val passesDto: HashMap<String, PassDto> = HashMap()

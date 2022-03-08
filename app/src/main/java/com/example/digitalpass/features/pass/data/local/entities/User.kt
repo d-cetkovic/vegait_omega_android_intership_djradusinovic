@@ -8,7 +8,7 @@ const val USER_TABLE_NAME = "USER"
 @Entity(tableName = USER_TABLE_NAME)
 data class User (//only one user -> no need for primary key of it
     @PrimaryKey(autoGenerate = true)
-    val user_id: Int,
+    val user_id: Int = 0,
     @ColumnInfo(name = "first_name")
     val firstName: String,
     @ColumnInfo(name = "image")

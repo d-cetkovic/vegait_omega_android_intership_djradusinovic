@@ -22,7 +22,7 @@ abstract class DatabaseApp: RoomDatabase() {
 
     companion object{
         @Volatile
-        private var instance: DatabaseApp? = null
+        private var instance : DatabaseApp? = null
 
         fun getDatabase(context: Context): DatabaseApp{
             return instance ?: synchronized(this){

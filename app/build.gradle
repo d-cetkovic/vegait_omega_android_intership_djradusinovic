@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-android'
     //kotlin-android-extensions needed for synthetic binding in adapter of recycler view
     id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -68,10 +69,14 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
 
     //Room database
+//    def room_version = "2.4.1"
+//
+//    implementation "androidx.room:room-runtime:$room_version"
+//    kapt "androidx.room:room-compiler:$room_version"//maybe use kapt
+
     def room_version = "2.4.1"
 
-    implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"//maybe use kapt
-
-
+//    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation 'androidx.room:room-ktx:2.4.1'
 }

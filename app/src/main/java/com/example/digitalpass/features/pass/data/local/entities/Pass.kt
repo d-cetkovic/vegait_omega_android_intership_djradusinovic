@@ -10,7 +10,7 @@ data class Pass(
     @PrimaryKey(autoGenerate = false)
     val pass_id: String,
     @ColumnInfo(name = "user_id")
-    val user_id: Int,
+    val user_id: Long,
     @ColumnInfo(name = "description")
     val description: String,
     @ColumnInfo(name = "icon")

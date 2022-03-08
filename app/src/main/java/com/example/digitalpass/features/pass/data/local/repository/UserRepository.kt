@@ -9,15 +9,15 @@ import kotlinx.coroutines.flow.Flow
 class UserRepository(private val userDao: UserDao) {
 
     @WorkerThread
-    suspend fun insertUser(user: User){
-        userDao.insertUser(user)
+    suspend fun insertUser(user: User): Long{
+        return userDao.insertUser(user)
     }
 
     fun getUserById(userId: Int): Flow<User>{
         return userDao.getUserById(userId)
     }
 
-    fun getUserWithPasses(userId: Int): Flow<UserWithPasses> {
-        return userDao.getUserWithPasses(userId)
+    fun getUserWithPasses(): Flow<UserWithPasses> {
+        return userDao.getUserWithPasses()
     }
 }
